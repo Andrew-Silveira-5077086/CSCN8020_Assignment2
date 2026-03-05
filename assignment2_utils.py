@@ -134,28 +134,28 @@ def main():
     print("Average steps:", np.mean(steps))
     
     # Parameter variations
-    alphas = [0.01, 0.001, 0.2]
-    epsilons = [0.2, 0.3]
+    alphas1 = [0.01, 0.001, 0.2]
+    epsilons1 = [0.2, 0.3]
 
     results = {}
 
     print("\n=== Testing different learning rates ===")
-    for a in alphas:
+    for a in alphas1:
         agent = Agent(num_obs, num_actions, alpha=a, epsilon=base_epsilon, gamma=gamma)
         returns, steps = agent.train(env, episodes)
         results[f"alpha={a}"] = (returns, steps)
         print(f"alpha={a}: avg return={np.mean(returns)}, avg steps={np.mean(steps)}")
 
     print("\n=== Testing different exploration factors ===")
-    for e in epsilons:
+    for e in epsilons1:
         agent = Agent(num_obs, num_actions, alpha=base_alpha, epsilon=e, gamma=gamma)
         returns, steps = agent.train(env, episodes)
         results[f"epsilon={e}"] = (returns, steps)
         print(f"epsilon={e}: avg return={np.mean(returns)}, avg steps={np.mean(steps)}")
-
+        
     # Choose best parameters (you decide based on results)
-    best_alpha = 0.1
-    best_epsilon = 0.1
+    best_alpha = 0.2
+    best_epsilon = 0.3
     
     print("\n=== Final training with chosen best parameters ===")
     agent = Agent(num_obs, num_actions, alpha=best_alpha, epsilon=best_epsilon, gamma=gamma)
