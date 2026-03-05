@@ -113,6 +113,7 @@ def simulate_episodes(env, agent, num_episodes=3):
             next_state, _, done, _, _ = env.step(action)
             state = next_state
         time.sleep(1.0)
+    env.close()    
 
 def main():
     # Note: Use v3 for the latest version
