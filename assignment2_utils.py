@@ -156,7 +156,7 @@ def main():
         
     # Choose best parameters (you decide based on results)
     best_alpha = 0.2
-    best_epsilon = 0.3
+    best_epsilon = 0.2
     
     print("\n=== Final training with chosen best parameters ===")
     agent = Agent(num_obs, num_actions, alpha=best_alpha, epsilon=best_epsilon, gamma=gamma)
